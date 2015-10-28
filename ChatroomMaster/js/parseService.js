@@ -15,40 +15,25 @@ app.service('parseService', function($http){
   
   //postData method here
    
-  // this.postData = function(obj) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: 'https://api.parse.com/1/classes/chat',
-  //     data: {
-        
-  //     }
-  //   });
-  // }
+  this.postData = function(objText) {
+    return $http({
+      method: 'POST',
+      url: 'https://api.parse.com/1/classes/chat',
+      data: objText
+    });
+  }
   
   //getData method here
   
   this.getData = function() {
-    return $http({
+    return $http({ 
       method: 'GET',
       url: 'https://api.parse.com/1/classes/chat?order=-createdAt'
-    }).then(function(myResponse) {
-      return myResponse.data.results;  
-    });
+    }).then(function(retrieveTheObjectFromtheUrl) {
+      return retrieveTheObjectFromtheUrl.data.results;  
+    })
   };
-  
- 
- 
- 
- 
- 
- 
-  
-  
-  
-  
-  
-  
-  
+
   
 
 });
